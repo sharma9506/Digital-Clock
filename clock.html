@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Clock </title>
+  <style>
+    h1{
+      
+       font-size: 150px;
+       text-align: center;
+       color: blue;
+       padding: 50px;
+       height: 500px;
+       width: 1100px;
+       margin-left: 100px;
+       margin-top: 0px;
+       background-image: url("img.jpg");
+       background-size: cover;
+
+    }
+   
+
+  </style>
+</head>
+<body onload="showTime()">
+  
+  <h1 >
+   
+  </h1>
+  <script>
+    function showTime(){
+      var data =new Date();
+      var h= data.getHours();
+      var m=data.getMinutes();
+      var s=data.getSeconds();
+      if(h < 10) h="0"+h;
+      if(m < 10) m="0"+m;
+      if(s < 10) s="0"+s;
+      var section ="AM";
+      if(h > 12) section ="PM";
+      var time = h +":" + m +":" + s +" " + section;
+      document.getElementsByTagName('h1')[0].innerText=time;
+      setTimeout(showTime , 1000);
+    }
+  </script>
+</body>
+</html>
